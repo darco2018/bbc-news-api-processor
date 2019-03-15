@@ -1,7 +1,7 @@
 console.log("I'm a great developer");
 
 // Get HTML elements
-let headlinesPara = document.querySelector("p.headlines");
+let headlinesPara = document.querySelector("p.allheadlines");
 
 
 // Assemble the full URL
@@ -10,9 +10,6 @@ const baseURL = "https://newsapi.org/v2/";
 const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
 let country = "pl";
 url = baseURL + "top-headlines?" + "country=" + country;
-
-
-
 
 // fetch headlines from bbc
 fetch(url, {
