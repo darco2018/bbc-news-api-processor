@@ -40,10 +40,6 @@ function displayHeadlines(data) {
 
   let jsonstr = JSON.stringify(data); // converts a JavaScript object to a (JSON) string. here: re-converting into JSON
   headlinesPara.textContent = jsonstr;
-
-
-  // convert to JS obj ?
-  // can write json to file, then to localStorage ?
 }
 
 
@@ -53,16 +49,17 @@ function displayNewsItems(data) {
 
   console.log(newsItemsArr);
 
-  for (let i = 0; i < 3; i++) {
-    
+  for (let i = 0; i < 9; i++) {
+
     let item = newsItemsArr[i];
-    // values retrieved from fetched data
+    //  retriev values from fetched data
     let title = item.title;
     let url = item.url;
     let description = item.description;
     let imageSrc = item.urlToImage;
     let published = item.publishedAt;
     let source = item.source.name;
+    let content = item.content;
 
     /* console.log(title);
     console.log(url);
@@ -71,9 +68,9 @@ function displayNewsItems(data) {
     console.log(published);
     console.log(source); */
 
-    let article = document.createElement("article");    
+    let article = document.createElement("article");
 
-    // header
+    // ------------ header -------------
     let header = document.createElement("header");
     let headline = document.createElement("h3");
     let linkToSource = document.createElement("a");
@@ -83,16 +80,27 @@ function displayNewsItems(data) {
     headline.appendChild(linkToSource);
     header.appendChild(headline);
 
-    // section
+    // ------------ section -------------
     let section = document.createElement("section");
     let descriptionPara = document.createElement("p");
-    descriptionPara.textContent = description;
+
+    // for portals not generating Polish signs properly or
+    // not generating description
+    if (source.toLowerCase() === "gazeta.pl" ||
+      source.toLowerCase() === "interia.pl" ||
+      source.toLowerCase() === "") {
+      descriptionPara.textContent = content;
+      console.log("Source is " + source);
+    } else {
+      descriptionPara.textContent = description;
+    }
+
     let img = document.createElement("img");
     img.src = imageSrc;
     section.appendChild(descriptionPara);
     section.appendChild(img);
 
-    //footer
+    // ------------ footer -------------
     let footer = document.createElement("footer");
     let time = document.createElement("time");
     time.dateTime = published;
@@ -104,16 +112,14 @@ function displayNewsItems(data) {
 
     let line = document.createElement("hr");
 
-    // assemble article components 
-    main.appendChild(article);   
+    //------------- assemble article components -------------
+    main.appendChild(article);
     article.appendChild(header);
     article.appendChild(section);
-    article.appendChild(footer);   
+    article.appendChild(footer);
     main.appendChild(line);
 
   }
 }
 
 
-
-//console.log(Array.isArray(data)); // false
