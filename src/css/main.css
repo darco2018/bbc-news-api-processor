@@ -130,20 +130,27 @@ a {
 
 /* --------- style checkbox--------------- */
 
+aside form { 
+
+  border:2px solid rgb(81, 85, 81);
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;	
+  border-radius:8px;
+}
 
 div {
   margin-bottom: 10px;
 }
 
 fieldset {
- /*  background: cyan;
-   border: 5px solid blue; */
+  padding: 10px;
 }
 
 legend {
   padding: 0px, 10px, 10px 0px;
-  /* background: blue;
-  color: cyan; */
+  margin-bottom: 10px;
+  margin-left:16px;
+  
 }
 
 /* ------------------------ */

@@ -31,7 +31,7 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
       <!-- a string of name/value pairs submitted like this: lg[]=pl&lg[]=en -->
       <form>
       <fieldset id="lang">
-        <legend>Choose the language of articles:</legend>
+        <legend>Choose the language:</legend>
         <div>
           <input type="checkbox" id="polish" name="lg[]" value="pl" checked>
           <label for="polish">Polish</label>
@@ -47,6 +47,33 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
         <div>
           <input type="checkbox" id="all" name="lg[]" value="all">
           <label for="all">All</label>
+    </fieldset>
+
+    <fieldset id="lang">
+        <legend>Choose the news source:</legend>
+        <div>
+          <input type="checkbox" id="onet" name="newsSource[]" value="onet.pl" >
+          <label for="onet">onet.pl</label>
+        </div>
+        <div>
+          <input type="checkbox" id="wp" name="newsSource[]" value="wp.pl">
+          <label for="wp">wp.pl</label>
+        </div>
+        <div>
+          <input type="checkbox" id="gazeta" name="newsSource[]" value="gazeta.pl">
+          <label for="gazeta">gazeta.pl</label>
+        </div>
+        <div>
+            <input type="checkbox" id="bbc" name="newsSource[]" value="bbc.com">
+            <label for="bbc">bbc.com</label>
+          </div>
+          <div>
+              <input type="checkbox" id="cnn" name="newsSource[]" value="cnn.com">
+              <label for="cnn">cnn.com</label>
+            </div>
+        <div>
+          <input type="checkbox" id="all" name="newsSource[]" value="all" checked>
+          <label for="all">All</label>
         </div>
         <div>
       <button type="submit">Search</button>
@@ -54,6 +81,8 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
     </fieldset>
     </form>
     </aside>
+
+
     <main role="main">
     </main>
   </section>
