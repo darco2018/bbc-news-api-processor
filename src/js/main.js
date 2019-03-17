@@ -74,7 +74,7 @@ function displayNewsItems(data) {
     let imageSrc = item.urlToImage ? item.urlToImage : "img/default_article_photo.jpg";
     let published = item.publishedAt ? item.publishedAt : "";
     let source = item.source.name ? item.source.name : "";
-    let newsSummary = selectTextToDisplay(item.content, item.description);
+    let newsSummary = selectTextToDisplay(item.content, item.description, true);
 
     //------------ assemble an article -----------
 
@@ -121,7 +121,13 @@ function displayNewsItems(data) {
 }
 
 
-function selectTextToDisplay(content, description) {
+function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
+
+  if(preferDescriptionToDisplay){
+    let temp = content;
+    content = description;
+    description = temp;
+  }
 
   // select text to display
   const defaultText = "Opis nie jest dostepny. Kliknij, aby dowiedzieć się więcej.";
