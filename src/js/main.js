@@ -43,13 +43,14 @@ function displayHeadlines(data) {
 }
 
 
+
 function displayNewsItems(data) {
 
   newsItemsArr = data["articles"];
 
   console.log(newsItemsArr);
 
-  //  retrieve values from fetched data with some validation
+  //------------  iterate over fetched JS objects -----------
   for (let i = 0; i < 9; i++) {
 
     let item = newsItemsArr[i];
@@ -59,7 +60,7 @@ function displayNewsItems(data) {
     }
 
 
-    // deal with item that has no url or title
+    //------------ select relevant items to display -----------
     let url;
     let title;
 
@@ -70,100 +71,90 @@ function displayNewsItems(data) {
       title = item.title;
     }
 
-    // select text to display
-    const defaultText = "Opis nie jest dostepny. Kliknij, aby dowiedzieć się więcej.";
-    let newsSummary = defaultText; // set early 
-    
+    let imageSrc = item.urlToImage ? item.urlToImage : "img/default_article_photo.jpg";
+    let published = item.publishedAt ? item.publishedAt : "";
+    let source = item.source.name ? item.source.name : "";
+    let newsSummary = selectTextToDisplay(item.content, item.description);
 
-    if (item.content) { // not null/empty/undefined
-      newsSummary = item.content;
-    } else if (item.description) {
-      newsSummary = item.description;
-    } 
+    //------------ assemble an article -----------
 
-    let maxAllowedChars = 260;
-    if (newsSummary.length > maxAllowedChars) {
-      newsSummary = newsSummary.substring(0, maxAllowedChars);
+    let article = document.createElement("article");
+
+    // ------------ header -------------
+    let header = document.createElement("header");
+    let headline = document.createElement("h3");
+    let linkToSource = document.createElement("a");
+    linkToSource.textContent = title;
+    linkToSource.href = url;
+    linkToSource.target = "_blank";
+    headline.appendChild(linkToSource);
+    header.appendChild(headline);
+
+    // ------------ section -------------
+    let section = document.createElement("section");
+    let descriptionPara = document.createElement("p");
+    descriptionPara.textContent = newsSummary;
+    let img = document.createElement("img");
+    img.src = imageSrc;
+    section.appendChild(descriptionPara);
+    section.appendChild(img);
+
+    // ------------ footer -------------
+    let footer = document.createElement("footer");
+    let footerPara = document.createElement("p");
+    let time = document.createElement("time");
+    time.dateTime = published;
+    time.textContent = published;
+    let sourceSpan = document.createElement("span");
+    sourceSpan.textContent = source;
+    footerPara.appendChild(time);
+    footerPara.appendChild(sourceSpan);
+    footer.appendChild(footerPara);
+
+    //------------- append article components -------------
+    main.appendChild(article);
+    article.appendChild(header);
+    article.appendChild(section);
+    article.appendChild(footer);
+
+  }
+}
+
+
+function selectTextToDisplay(content, description) {
+
+  // select text to display
+  const defaultText = "Opis nie jest dostepny. Kliknij, aby dowiedzieć się więcej.";
+  let textToDisplay = defaultText; // set early 
+
+
+  if (content) { // not null/empty/undefined
+    textToDisplay = content;
+  } else if (description) {
+    textToDisplay = description;
+  }
+
+  let maxAllowedChars = 260;
+  if (textToDisplay.length > maxAllowedChars) {
+    textToDisplay = textToDisplay.substring(0, maxAllowedChars);
+  }
+
+  // handle portals not generating Polish signs properly
+  function rendersPolishSigns(text) {
+    var replacementChar = 65533;
+    return text.indexOf(String.fromCharCode(replacementChar)) === -1 ? true : false;
+  }
+
+  // reset if Polish chars not handled properly
+  if (textToDisplay.length > 60) {
+    if (!rendersPolishSigns(textToDisplay.substring(0, 60))) {
+      textToDisplay = defaultText;
     }
-
-    // handle portals not generating Polish signs properly
-    function rendersPolishSigns(text) {
-      var replacementChar = 65533;
-      return text.indexOf(String.fromCharCode(replacementChar)) === -1 ? true : false;
-    }
-
-    // reset if Polish chars not handled properly
-    if (newsSummary.length > 60 ) {          
-      if (!rendersPolishSigns(newsSummary.substring(0, 60))) {
-        newsSummary = defaultText;
-      } 
-    } else {
-      if (!rendersPolishSigns(newsSummary.substring(0, newsSummary.length -1))) {
-        newsSummary = defaultText;
-      } 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      let imageSrc = item.urlToImage ? item.urlToImage : "img/default_article_photo.jpg";
-      let published = item.publishedAt ? item.publishedAt : "";
-      let source = item.source.name ? item.source.name : "";
-
-      //console.log(description);
-
-      let article = document.createElement("article");
-
-      // ------------ header -------------
-      let header = document.createElement("header");
-      let headline = document.createElement("h3");
-      let linkToSource = document.createElement("a");
-      linkToSource.textContent = title;
-      linkToSource.href = url;
-      linkToSource.target = "_blank";
-      headline.appendChild(linkToSource);
-      header.appendChild(headline);
-
-      // ------------ section -------------
-      let section = document.createElement("section");
-      let descriptionPara = document.createElement("p");
-      descriptionPara.textContent = newsSummary;
-
-      let img = document.createElement("img");
-      img.src = imageSrc;
-      section.appendChild(descriptionPara);
-      section.appendChild(img);
-
-      // ------------ footer -------------
-      let footer = document.createElement("footer");
-      let footerPara = document.createElement("p");
-      let time = document.createElement("time");
-      time.dateTime = published;
-      time.textContent = published;
-      let sourceSpan = document.createElement("span");
-      sourceSpan.textContent = source;
-      footerPara.appendChild(time);
-      footerPara.appendChild(sourceSpan);
-      footer.appendChild(footerPara);
-
-      let line = document.createElement("hr");
-
-      //------------- assemble article components -------------
-      main.appendChild(article);
-      article.appendChild(header);
-      article.appendChild(section);
-      article.appendChild(footer);
-      main.appendChild(line);
-
+  } else {
+    if (!rendersPolishSigns(textToDisplay.substring(0, textToDisplay.length - 1))) {
+      textToDisplay = defaultText;
     }
   }
+
+  return textToDisplay;
+}

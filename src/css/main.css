@@ -256,6 +256,9 @@ img:hover {
 }
 
 footer {
+
+  
+
   border: 3px solid red;
 
   display: flex;
@@ -264,6 +267,8 @@ footer {
 }
 
 footer p {
+  
+
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
