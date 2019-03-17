@@ -117,6 +117,8 @@ body {
 
 #panel {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 #panel aside {
@@ -124,18 +126,30 @@ body {
 }
 
 a {
-  color: #e81c4f;
+  /* color: #e81c4f; */
+  color: black;
   text-decoration: none;
+  font-size: 1.1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+  /* overflow: auto 2; */
+}
+
+a:visited {
+  color: black;
 }
 
 /* --------- style checkbox--------------- */
 
-aside form { 
+aside form {
 
-  border:2px solid rgb(81, 85, 81);
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;	
-  border-radius:8px;
+  border: 2px solid rgb(81, 85, 81);
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
 }
 
 div {
@@ -149,15 +163,15 @@ fieldset {
 legend {
   padding: 0px, 10px, 10px 0px;
   margin-bottom: 10px;
-  margin-left:16px;
-  
+  margin-left: 16px;
+
 }
 
 /* ------------------------ */
 
 h1,
 h2,
-h3 a,
+h3,
 strong {
   color: #333;
 }
@@ -181,7 +195,7 @@ main article {
 
   /* width: 23em; */
   width: 29%;
-  height: 35em;
+  /* height: 32.9em; */
 
   /* border: 1px solid rgb(29, 68, 238); */
   /* padding-right: 20px; */
@@ -201,54 +215,86 @@ main article {
 
 
 main article h3 {
-  margin-top: 1em;
-  padding-top: 1em;
+  margin-top: .2em;
+  padding-top: .1em;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+  max-height: 90px;
+  /*  overflow: -moz-hidden-unscrollable; */
+  overflow: hidden;
 }
 
 main section {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  /* align-items: flex-end;  */
+  justify-content: flex-start;
+  
 
 
   height: 100%;
-  /*  border: 1px solid blue; */
-  /*  background-color: yellow; */
+
+
+
+  /* justify-content: center;
+  align-items: center; */
+  overflow: hidden;
+
+  position: relative;
+  bottom: 10px;
+
+
 }
+
+
 
 main section p {
-  /* background-color: lightgrey; */
+  /* 
   position: relative;
-  top: 10px;
+  top: 1em;
   left: 10px;
-  width: 95%;
+  width: 95%; */
+
+
+
 }
 
+main a p {
+  margin-top: 0.3em;
+  margin-left: 0.3em;
+  text-indent: 1em;
+  overflow: -moz-hidden-unscrollable;
+  overflow: hidden;
+
+  text-overflow: clip;
+
+
+  /* margin-top: 5px; */
+}
 
 
 
 main img {
 
-  position: relative;
-  bottom: 10px;
-  left: 10px;
-
-
   border: 1px solid #ddd;
   border-radius: 4px;
-  padding: 5px;
-  margin: 0 auto;
+  padding: .5em; 
+  margin-right: 0em;
+
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  /* margin-bottom: 5em; */
 
 
-  height: auto;
-  width: auto;
-  max-width: 290px;
-  max-height: 240px;
+  object-fit: cover;
+  max-height: 299px;
+  Width: 90%;
 
 
 }
+
+
+
 
 /* Add a hover effect (blue shadow) */
 img:hover {
@@ -257,9 +303,9 @@ img:hover {
 
 footer {
 
-  
+  position: relative;
 
-  border: 3px solid red;
+  /* border: 3px solid red; */
 
   display: flex;
   flex-direction: column;
@@ -267,12 +313,12 @@ footer {
 }
 
 footer p {
-  
+
 
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   font-size: 0.8em;
 }
 

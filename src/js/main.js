@@ -99,30 +99,34 @@ function displayNewsItems(data) {
     let imageSrc = item.urlToImage ? item.urlToImage : "img/default_article_photo.jpg";
     let published = item.publishedAt ? item.publishedAt : "";
     let source = item.source.name ? item.source.name : "";
-    let newsSummary = selectTextToDisplay(item.content, item.description, true);
+    let newsSummary = selectTextToDisplay(item.content, item.description, item.title, true);
 
     //------------ assemble an article -----------
-
+    let linkToSource = document.createElement("a");
+    linkToSource.href = url;
+    linkToSource.target = "_blank";  
+   
+      
     let article = document.createElement("article");
-
+    article.appendChild(linkToSource);
     // ------------ header -------------
     let header = document.createElement("header");
-    let headline = document.createElement("h3");
-    let linkToSource = document.createElement("a");
-    linkToSource.textContent = title;
-    linkToSource.href = url;
-    linkToSource.target = "_blank";
-    headline.appendChild(linkToSource);
+    let headline = document.createElement("h3");    
+    headline.textContent = title;  
     header.appendChild(headline);
 
-    // ------------ section -------------
-    let section = document.createElement("section");
-    let descriptionPara = document.createElement("p");
-    descriptionPara.textContent = newsSummary;
     let img = document.createElement("img");
-    img.src = imageSrc;
+    img.src = imageSrc;    
+    
+   
+    
+    // ------------ section -------------
+    let section = document.createElement("section");   
+
+    let descriptionPara = document.createElement("p");
+    descriptionPara.innerHTML = newsSummary;
     section.appendChild(descriptionPara);
-    section.appendChild(img);
+    
 
     // ------------ footer -------------
     let footer = document.createElement("footer");
@@ -138,15 +142,16 @@ function displayNewsItems(data) {
 
     //------------- append article components -------------
     main.appendChild(article);
-    article.appendChild(header);
-    article.appendChild(section);
-    article.appendChild(footer);
+    linkToSource.appendChild(header);
+    linkToSource.appendChild(img);
+    linkToSource.appendChild(section);
+    linkToSource.appendChild(footer);
 
   }
 }
 
 
-function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
+function selectTextToDisplay(content, description, title, preferDescriptionToDisplay) {
 
   if (preferDescriptionToDisplay) {
     let temp = content;
@@ -155,7 +160,7 @@ function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
   }
 
   // select text to display
-  const defaultText = "Opis nie jest dostepny. Kliknij, aby dowiedzieć się więcej.";
+  const defaultText = "Kliknij, aby dowiedzieć się więcej.";
   let textToDisplay = defaultText; // set early 
 
 
@@ -188,5 +193,6 @@ function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
     }
   }
 
-  return textToDisplay.length > 59 ? textToDisplay : defaultText;
+  return textToDisplay.length > 59 ? textToDisplay : title;
+  /*  + "<br><br><p>" + defaultText + "</p>"; */
 }
