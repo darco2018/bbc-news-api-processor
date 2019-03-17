@@ -1,5 +1,8 @@
 console.log("I'm a great developer");
 
+
+const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
+
 // Get HTML elements
 const headlinesPara = document.querySelector("p.allheadlines");
 
@@ -9,13 +12,35 @@ let newsItemsArr;
 
 
 // Assemble the full URL
-let url;
-const baseURL = "https://newsapi.org/v2/";
-const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
+
+const srcLangForm = document.querySelector("#src-lang-form");
+const langInputs = srcLangForm.querySelectorAll("input[name='lg[]'");
+const srcInputs = srcLangForm.querySelectorAll("input[name='newsSource[]'");
+
+srcLangForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let selectedLanguages = srcLangForm.querySelectorAll("input[name='lg[]']:checked");
+  let selectedSources = srcLangForm.querySelectorAll("input[name='newsSource[]']:checked");
+
+  
+  alert("Selected lgs: " + selectedLanguages.length +
+    ", sources: " + selectedSources.length);
+  
+});
+
+
 let country = "pl";
-url = baseURL + "top-headlines?" + "country=" + country;
+let url = buildUrl(country);
+
+function buildUrl(language) {
+  const baseURL = "https://newsapi.org/v2/";
+  return baseURL + "top-headlines?" + "country=" + language;
+}
+
+
 
 // fetch headlines from bbc
+
 fetch(url, {
     headers: {
       "x-api-key": bbcKey,
@@ -123,7 +148,7 @@ function displayNewsItems(data) {
 
 function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
 
-  if(preferDescriptionToDisplay){
+  if (preferDescriptionToDisplay) {
     let temp = content;
     content = description;
     description = temp;
