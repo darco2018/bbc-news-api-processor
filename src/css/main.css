@@ -102,70 +102,118 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-   
 
 
-   body {
-  /* margin: 0 auto; centers*/
-  /* max-width: 50em; a limit of characters per line */
-  /* color: #555; */
+
+body {
   color: #566b78;
   font-family: "Helvetica", "Arial", sans-serif;
   padding: 4em 1em;
+
+  /* margin: 0 auto; centers*/
+  /* max-width: 50em; a limit of characters per line */
+  /* color: #555; */
 }
 
+
+
 a {
-    color: #e81c4f;
+  color: #e81c4f;
+  text-decoration: none;
 }
+
 
 h1,
 h2,
-a,
+h3 a,
 strong {
   color: #333;
 }
 
 
 main {
-  width: 30em;
+  /* width: 30em; */
+  display: flex;
+  flex-wrap: wrap;
   /* border: 1px solid rgb(231, 17, 17); */
   /* padding: 20px; */
 }
 
+
+
 main article {
-  width: 30em;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 23em;
+  height: 35em;
+
   /* border: 1px solid rgb(29, 68, 238); */
   /* padding-right: 20px; */
 
   background: #eee;
   padding: 1em;
+  margin: 0.5em;
   vertical-align: text-bottom;
 
   /* background: #f5f7f9; */
   border-bottom: 1px solid #d8dee9;
   /* color: #a7adba; */
+
+
+
 }
 
-
-
-
-main article a {
-  text-decoration: none;
-}
 
 main article h3 {
   margin-top: 1em;
   padding-top: 1em;
 }
 
+section {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-end;  */
+
+
+  height: 100%;
+  /*  border: 1px solid blue; */
+  /*  background-color: yellow; */
+}
+
+section p {
+  /* background-color: lightgrey; */
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 95%;
+}
+
 
 
 
 main img {
+
+  position: relative;
+  bottom: 10px;
+  left: 10px;
+
+
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 150px;
+  margin: 0 auto;
+
+
+  height: auto;
+  width: auto;
+  max-width: 290px;
+  max-height: 240px;
+
+
 }
 
 /* Add a hover effect (blue shadow) */
@@ -173,6 +221,21 @@ img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
+footer {
+  border: 3px solid red;
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+footer p {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border: 1px solid red;
+  font-size: 0.8em;
+}
 
 
 

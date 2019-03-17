@@ -49,77 +49,121 @@ function displayNewsItems(data) {
 
   console.log(newsItemsArr);
 
+  //  retrieve values from fetched data with some validation
   for (let i = 0; i < 9; i++) {
 
     let item = newsItemsArr[i];
-    //  retriev values from fetched data
-    let title = item.title;
-    let url = item.url;
-    let description = item.description;
-    let imageSrc = item.urlToImage;
-    let published = item.publishedAt;
-    let source = item.source.name;
-    let content = item.content;
-
-    /* console.log(title);
-    console.log(url);
-    console.log(description);
-    console.log(imageSrc);
-    console.log(published);
-    console.log(source); */
-
-    let article = document.createElement("article");
-
-    // ------------ header -------------
-    let header = document.createElement("header");
-    let headline = document.createElement("h3");
-    let linkToSource = document.createElement("a");
-    linkToSource.textContent = title;
-    linkToSource.href = url;
-    linkToSource.target = "_blank";
-    headline.appendChild(linkToSource);
-    header.appendChild(headline);
-
-    // ------------ section -------------
-    let section = document.createElement("section");
-    let descriptionPara = document.createElement("p");
-
-    // for portals not generating Polish signs properly or
-    // not generating description
-    if (source.toLowerCase() === "gazeta.pl" ||
-      source.toLowerCase() === "interia.pl" ||
-      source.toLowerCase() === "") {
-      descriptionPara.textContent = content;
-      console.log("Source is " + source);
-    } else {
-      descriptionPara.textContent = description;
+    if (!item) {
+      alert("Error: unable to fetch data. Please try again later.");
+      break;
     }
 
-    let img = document.createElement("img");
-    img.src = imageSrc;
-    section.appendChild(descriptionPara);
-    section.appendChild(img);
 
-    // ------------ footer -------------
-    let footer = document.createElement("footer");
-    let time = document.createElement("time");
-    time.dateTime = published;
-    time.textContent = published;
-    let sourceSpan = document.createElement("span");
-    sourceSpan.textContent = source;
-    footer.appendChild(time);
-    footer.appendChild(sourceSpan);
+    // deal with item that has no url or title
+    let url;
+    let title;
 
-    let line = document.createElement("hr");
+    if (!item.url || !item.title) {
+      continue;
+    } else {
+      url = item.url;
+      title = item.title;
+    }
 
-    //------------- assemble article components -------------
-    main.appendChild(article);
-    article.appendChild(header);
-    article.appendChild(section);
-    article.appendChild(footer);
-    main.appendChild(line);
+    // select text to display
+    const defaultText = "Opis nie jest dostepny. Kliknij, aby dowiedzieć się więcej.";
+    let newsSummary = defaultText; // set early 
+    
 
+    if (item.content) { // not null/empty/undefined
+      newsSummary = item.content;
+    } else if (item.description) {
+      newsSummary = item.description;
+    } 
+
+    let maxAllowedChars = 260;
+    if (newsSummary.length > maxAllowedChars) {
+      newsSummary = newsSummary.substring(0, maxAllowedChars);
+    }
+
+    // handle portals not generating Polish signs properly
+    function rendersPolishSigns(text) {
+      var replacementChar = 65533;
+      return text.indexOf(String.fromCharCode(replacementChar)) === -1 ? true : false;
+    }
+
+    // reset if Polish chars not handled properly
+    if (newsSummary.length > 60 ) {          
+      if (!rendersPolishSigns(newsSummary.substring(0, 60))) {
+        newsSummary = defaultText;
+      } 
+    } else {
+      if (!rendersPolishSigns(newsSummary.substring(0, newsSummary.length -1))) {
+        newsSummary = defaultText;
+      } 
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      let imageSrc = item.urlToImage ? item.urlToImage : "img/default_article_photo.jpg";
+      let published = item.publishedAt ? item.publishedAt : "";
+      let source = item.source.name ? item.source.name : "";
+
+      //console.log(description);
+
+      let article = document.createElement("article");
+
+      // ------------ header -------------
+      let header = document.createElement("header");
+      let headline = document.createElement("h3");
+      let linkToSource = document.createElement("a");
+      linkToSource.textContent = title;
+      linkToSource.href = url;
+      linkToSource.target = "_blank";
+      headline.appendChild(linkToSource);
+      header.appendChild(headline);
+
+      // ------------ section -------------
+      let section = document.createElement("section");
+      let descriptionPara = document.createElement("p");
+      descriptionPara.textContent = newsSummary;
+
+      let img = document.createElement("img");
+      img.src = imageSrc;
+      section.appendChild(descriptionPara);
+      section.appendChild(img);
+
+      // ------------ footer -------------
+      let footer = document.createElement("footer");
+      let footerPara = document.createElement("p");
+      let time = document.createElement("time");
+      time.dateTime = published;
+      time.textContent = published;
+      let sourceSpan = document.createElement("span");
+      sourceSpan.textContent = source;
+      footerPara.appendChild(time);
+      footerPara.appendChild(sourceSpan);
+      footer.appendChild(footerPara);
+
+      let line = document.createElement("hr");
+
+      //------------- assemble article components -------------
+      main.appendChild(article);
+      article.appendChild(header);
+      article.appendChild(section);
+      article.appendChild(footer);
+      main.appendChild(line);
+
+    }
   }
-}
-
-
