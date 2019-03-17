@@ -28,58 +28,59 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
   <![endif]-->
   <section id="panel">
     <aside>
-      <!-- a string of name/value pairs submitted like this: lg[]=pl&lg[]=en -->
-      <form>
-      <fieldset id="lang">
-        <legend>Choose the language:</legend>
-        <div>
-          <input type="checkbox" id="polish" name="lg[]" value="pl" checked>
-          <label for="polish">Polish</label>
-        </div>
-        <div>
-          <input type="checkbox" id="english" name="lg[]" value="en">
-          <label for="english">English</label>
-        </div>
-        <div>
-          <input type="checkbox" id="german" name="lg[]" value="gr">
-          <label for="german">German</label>
-        </div>
-        <div>
-          <input type="checkbox" id="all" name="lg[]" value="all">
-          <label for="all">All</label>
-    </fieldset>
 
-    <fieldset id="lang">
-        <legend>Choose the news source:</legend>
-        <div>
-          <input type="checkbox" id="onet" name="newsSource[]" value="onet.pl" >
-          <label for="onet">onet.pl</label>
-        </div>
-        <div>
-          <input type="checkbox" id="wp" name="newsSource[]" value="wp.pl">
-          <label for="wp">wp.pl</label>
-        </div>
-        <div>
-          <input type="checkbox" id="gazeta" name="newsSource[]" value="gazeta.pl">
-          <label for="gazeta">gazeta.pl</label>
-        </div>
-        <div>
+      <form>
+        <fieldset id="lang">
+          <legend>Choose the language:</legend>
+          <div>
+            <!--  will produce a string submitted like this: lg[]=pl&lg[]=en  -->
+            <input type="checkbox" id="polish" name="lg[]" value="pl" checked>
+            <label for="polish">Polish</label>
+          </div>
+          <div>
+            <input type="checkbox" id="english" name="lg[]" value="en">
+            <label for="english">English</label>
+          </div>
+          <div>
+            <input type="checkbox" id="german" name="lg[]" value="gr">
+            <label for="german">German</label>
+          </div>
+          <div>
+            <input type="checkbox" id="all" name="lg[]" value="all">
+            <label for="all">All</label>
+        </fieldset>
+
+        <fieldset id="newsSource">
+          <legend>Choose the news source:</legend>
+          <div>
+            <input type="checkbox" id="onet" name="newsSource[]" value="onet.pl">
+            <label for="onet">onet.pl</label>
+          </div>
+          <div>
+            <input type="checkbox" id="wp" name="newsSource[]" value="wp.pl">
+            <label for="wp">wp.pl</label>
+          </div>
+          <div>
+            <input type="checkbox" id="gazeta" name="newsSource[]" value="gazeta.pl">
+            <label for="gazeta">gazeta.pl</label>
+          </div>
+          <div>
             <input type="checkbox" id="bbc" name="newsSource[]" value="bbc.com">
             <label for="bbc">bbc.com</label>
           </div>
           <div>
-              <input type="checkbox" id="cnn" name="newsSource[]" value="cnn.com">
-              <label for="cnn">cnn.com</label>
-            </div>
-        <div>
-          <input type="checkbox" id="all" name="newsSource[]" value="all" checked>
-          <label for="all">All</label>
-        </div>
-        <div>
-      <button type="submit">Search</button>
-    </div>
-    </fieldset>
-    </form>
+            <input type="checkbox" id="cnn" name="newsSource[]" value="cnn.com">
+            <label for="cnn">cnn.com</label>
+          </div>
+          <div>
+            <input type="checkbox" id="all" name="newsSource[]" value="all" checked>
+            <label for="all">All</label>
+          </div>
+          <div>
+            <button type="submit">Search</button>
+          </div>
+        </fieldset>
+      </form>
     </aside>
 
 
