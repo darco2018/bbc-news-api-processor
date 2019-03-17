@@ -115,13 +115,38 @@ body {
   /* color: #555; */
 }
 
+#panel {
+  display: flex;
+}
 
+#panel aside {
+  width: 20%;
+}
 
 a {
   color: #e81c4f;
   text-decoration: none;
 }
 
+/* --------- style checkbox--------------- */
+
+
+div {
+  margin-bottom: 10px;
+}
+
+fieldset {
+ /*  background: cyan;
+   border: 5px solid blue; */
+}
+
+legend {
+  padding: 0px, 10px, 10px 0px;
+  /* background: blue;
+  color: cyan; */
+}
+
+/* ------------------------ */
 
 h1,
 h2,
@@ -135,6 +160,7 @@ main {
   /* width: 30em; */
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
   /* border: 1px solid rgb(231, 17, 17); */
   /* padding: 20px; */
 }
@@ -146,7 +172,8 @@ main article {
   display: flex;
   flex-direction: column;
 
-  width: 23em;
+  /* width: 23em; */
+  width: 29%;
   height: 35em;
 
   /* border: 1px solid rgb(29, 68, 238); */
@@ -171,7 +198,7 @@ main article h3 {
   padding-top: 1em;
 }
 
-section {
+main section {
 
   display: flex;
   flex-direction: column;
@@ -184,7 +211,7 @@ section {
   /*  background-color: yellow; */
 }
 
-section p {
+main section p {
   /* background-color: lightgrey; */
   position: relative;
   top: 10px;
