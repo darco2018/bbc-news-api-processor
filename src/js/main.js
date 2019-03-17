@@ -13,18 +13,18 @@ let newsItemsArr;
 
 // Assemble the full URL
 
-const srcLangForm = document.querySelector("#src-lang-form");
-const langInputs = srcLangForm.querySelectorAll("input[name='lg[]'");
-const srcInputs = srcLangForm.querySelectorAll("input[name='newsSource[]'");
+const theForm = document.querySelector("#user-choices-form");
+const countryInputs = theForm.querySelectorAll("input[name='country[]'");
+const srcInputs = theForm.querySelectorAll("input[name='newsSource[]'");
 
-srcLangForm.addEventListener("submit", function (e) {
+theForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  let selectedLanguages = srcLangForm.querySelectorAll("input[name='lg[]']:checked");
-  let selectedSources = srcLangForm.querySelectorAll("input[name='newsSource[]']:checked");
+  let chosenCountry = theForm.querySelectorAll("input[name='country[]']:checked");
+  let chosenSources = theForm.querySelectorAll("input[name='newsSource[]']:checked");
 
   
-  alert("Selected lgs: " + selectedLanguages.length +
-    ", sources: " + selectedSources.length);
+  alert("Selected countries: " + chosenCountry.length +
+    ", sources: " + chosenSources.length);
   
 });
 
@@ -32,9 +32,9 @@ srcLangForm.addEventListener("submit", function (e) {
 let country = "pl";
 let url = buildUrl(country);
 
-function buildUrl(language) {
+function buildUrl(userChoice) {
   const baseURL = "https://newsapi.org/v2/";
-  return baseURL + "top-headlines?" + "country=" + language;
+  return baseURL + "top-headlines?" + "country=" + userChoice;
 }
 
 
@@ -76,7 +76,7 @@ function displayNewsItems(data) {
   console.log(newsItemsArr);
 
   //------------  iterate over fetched JS objects -----------
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 12; i++) {
 
     let item = newsItemsArr[i];
     if (!item) {
@@ -177,8 +177,9 @@ function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
   }
 
   // reset if Polish chars not handled properly
-  if (textToDisplay.length > 60) {
-    if (!rendersPolishSigns(textToDisplay.substring(0, 60))) {
+  var sampleLimit = 100;
+  if (textToDisplay.length > sampleLimit) {
+    if (!rendersPolishSigns(textToDisplay.substring(0, sampleLimit))) {
       textToDisplay = defaultText;
     }
   } else {
@@ -187,5 +188,5 @@ function selectTextToDisplay(content, description, preferDescriptionToDisplay) {
     }
   }
 
-  return textToDisplay;
+  return textToDisplay.length > 59 ? textToDisplay : defaultText;
 }

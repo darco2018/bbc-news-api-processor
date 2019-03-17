@@ -4,7 +4,7 @@
 Modernizr Feature detection  programmatically checks if Awesome-New-Feature™ works in the browser, 
 and gives you either a true or false result. So now as soon as your least favorite browser adds support 
 for Awesome-New-Feature™, your code works there - automatically!  -->
-<html class="no-js" lang="pl">
+<html class="no-js" lang="pl,en">
 
 <head>
   <meta charset="utf-8">
@@ -29,24 +29,24 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
   <section id="panel">
     <aside>
 
-      <form id="src-lang-form">
+      <form id="user-choices-form">
         <fieldset >
-          <legend>Choose the language:</legend>
+          <legend>Choose the country:</legend>
           <div>
-            <!--  will produce a string submitted like this: lg[]=pl&lg[]=us  -->
-            <input type="checkbox" id="polish" name="lg[]" value="pl" checked>
+            <!--  will produce a string submitted like this: country[]=pl&country[]=us  -->
+            <input type="radio" id="polish" name="country[]" value="pl" checked>
             <label for="polish">Polish</label>
           </div>
           <div>
-            <input type="checkbox" id="english" name="lg[]" value="en">
+            <input type="radio" id="english" name="country[]" value="en">
             <label for="english">English</label>
           </div>
           <div>
-            <input type="checkbox" id="german" name="lg[]" value="gr">
+            <input type="radio" id="german" name="country[]" value="gr">
             <label for="german">German</label>
           </div>
           <div>
-            <input type="checkbox" id="all" name="lg[]" value="all">
+            <input type="radio" id="all" name="country[]" value="all">
             <label for="all">All</label>
         </fieldset>
 
