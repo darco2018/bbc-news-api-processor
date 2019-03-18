@@ -4,7 +4,7 @@
 Modernizr Feature detection  programmatically checks if Awesome-New-Feature™ works in the browser, 
 and gives you either a true or false result. So now as soon as your least favorite browser adds support 
 for Awesome-New-Feature™, your code works there - automatically!  -->
-<html class="no-js" lang="pl,en">
+<html class="no-js" lang="pl">
 
 <head>
   <meta charset="utf-8">
@@ -39,7 +39,7 @@ Once this is done, the browser will emit the domComplete event, and then onLoad.
   <section id="panel">
     <aside>
 
-      <form id="user-choices-form">
+      <form id="user-choices-form" autocomplete="off">
         <fieldset >
           <legend>Choose the country:</legend>
           <div>
@@ -48,42 +48,46 @@ Once this is done, the browser will emit the domComplete event, and then onLoad.
             <label for="poland">Poland</label>
           </div>
           <div>
-            <input type="radio" id="england" name="country[]" value="en">
-            <label for="england">England</label>
+            <input type="radio" id="great-britain" name="country[]" value="gb">
+            <label for="great-britain">Great Britain</label>
           </div>
           <div>
-            <input type="radio" id="germany" name="country[]" value="gr">
+              <input type="radio" id="us" name="country[]" value="us">
+              <label for="us">USA</label>
+            </div>
+          <div>
+            <input type="radio" id="germany" name="country[]" value="de">
             <label for="germany">Germany</label>
           </div>
           <div>
             <input type="radio" id="all" name="country[]" value="all">
-            <label for="all">All</label>
+            <label for="all">The world</label>
         </fieldset>
 
         <fieldset>
           <legend>Choose the news source:</legend>
           <div>
-            <input type="checkbox" id="onet" name="newsSource[]" value="onet.pl">
+            <input type="checkbox" id="onet" name="news-source[]" value="onet.pl">
             <label for="onet">onet.pl</label>
           </div>
           <div>
-            <input type="checkbox" id="wp" name="newsSource[]" value="wp.pl">
+            <input type="checkbox" id="wp" name="news-source[]" value="wp.pl">
             <label for="wp">wp.pl</label>
           </div>
           <div>
-            <input type="checkbox" id="gazeta" name="newsSource[]" value="gazeta.pl">
+            <input type="checkbox" id="gazeta" name="news-source[]" value="gazeta.pl">
             <label for="gazeta">gazeta.pl</label>
           </div>
           <div>
-            <input type="checkbox" id="bbc" name="newsSource[]" value="bbc.com">
+            <input type="checkbox" id="bbc" name="news-source[]" value="bbc.com">
             <label for="bbc">bbc.com</label>
           </div>
           <div>
-            <input type="checkbox" id="cnn" name="newsSource[]" value="cnn.com">
+            <input type="checkbox" id="cnn" name="news-source[]" value="cnn.com">
             <label for="cnn">cnn.com</label>
           </div>
           <div>
-            <input type="checkbox" id="all" name="newsSource[]" value="all" checked>
+            <input type="checkbox" id="all" name="news-source[]" value="all" checked>
             <label for="all">All</label>
           </div>
           <div>

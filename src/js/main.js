@@ -2,17 +2,19 @@ console.log("I'm a great developer");
 
 /* --------- non-html vars -------------- */
 const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
+const defaultCountry = "pl";
 /* /* ------------------------------------------------------------------- */
 
 
 
 /* --------- html vars -------------- */
+const html = document.querySelector("html");
 const main = document.querySelector("main");
 
 // the form
 const theForm = document.querySelector("#user-choices-form");
 const countryInputs = theForm.querySelectorAll("input[name='country[]'");
-const srcInputs = theForm.querySelectorAll("input[name='newsSource[]'");
+const srcInputs = theForm.querySelectorAll("input[name='news-source[]'");
 /* ------------------------------------------------------------------- */
 
 
@@ -24,20 +26,22 @@ fetchBbcHeadlines();
 
 theForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  let chosenCountry = theForm.querySelectorAll("input[name='country[]']:checked");
-  let chosenSources = theForm.querySelectorAll("input[name='newsSource[]']:checked");
+  let chosenCountry = theForm.querySelector("input[name='country[]']:checked");
+  fetchBbcHeadlines(chosenCountry.value);
 });
 
 
 
 /* --------- main functions-------------- */
 
-function fetchBbcHeadlines() {
+function fetchBbcHeadlines(userCountryChoice, newsSources) {
 
-  let country = "pl";
-  let url = buildUrl(country);
+  let requestUrl;
 
-  fetch(url, {
+  setMainPanelLanguage(userCountryChoice);
+  requestUrl = buildRequestUrl(createCountryQuery(userCountryChoice));
+
+  fetch(requestUrl, {
       headers: {
         "x-api-key": bbcKey,
       }
@@ -55,6 +59,8 @@ function fetchBbcHeadlines() {
 
 
 function displayNewsItems(data) {
+
+  while (main.firstChild && main.removeChild(main.firstChild));
 
   newsItemsArr = data["articles"];
 
@@ -136,9 +142,40 @@ function displayNewsItems(data) {
 
 /* --------- helper functions-------------- */
 
-function buildUrl(userCountryChoice) {
+function createCountryQuery(countryCode) {
+
+  countryCode = countryCode ? countryCode : defaultCountry;
+
+  // bbc api doesn't allow no-paramter query, and there's no option for 'all countries', 
+  // so setting a category serves as a substitute for a single mandatory parameter
+  return countryCode === "all" ? "category=politics" : "country=" + countryCode;
+}
+
+function buildRequestUrl(userCountryChoice) {
   const baseURL = "https://newsapi.org/v2/";
-  return baseURL + "top-headlines?" + "country=" + userCountryChoice;
+  return baseURL + "top-headlines?" + userCountryChoice;
+}
+
+function setMainPanelLanguage(countryCode) {
+
+  countryCode = countryCode ? countryCode : defaultCountry;
+  let language;
+
+  switch (countryCode) {
+    case "pl":
+      language = "pl";
+      break;
+    case "de":
+      language = "de";
+      break;
+    case "gb":
+    case "us":
+    default:
+      language = "en";
+      break;
+  }
+
+  main.setAttribute("lang", language);
 }
 
 /* ------------------------------------------------------------------- */
