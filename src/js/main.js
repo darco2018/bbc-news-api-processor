@@ -1,72 +1,57 @@
 console.log("I'm a great developer");
 
-
+/* --------- non-html vars -------------- */
 const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
+/* /* ------------------------------------------------------------------- */
 
-// Get HTML elements
-const headlinesPara = document.querySelector("p.allheadlines");
 
+
+/* --------- html vars -------------- */
 const main = document.querySelector("main");
-let newsItemsArr;
 
-
-
-// Assemble the full URL
-
+// the form
 const theForm = document.querySelector("#user-choices-form");
 const countryInputs = theForm.querySelectorAll("input[name='country[]'");
 const srcInputs = theForm.querySelectorAll("input[name='newsSource[]'");
+/* ------------------------------------------------------------------- */
+
+
+/* --------- init -------------- */
+fetchBbcHeadlines();
+/* ------------------------------------------------------------------- */
+
+/* --------- event handlers-------------- */
 
 theForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let chosenCountry = theForm.querySelectorAll("input[name='country[]']:checked");
   let chosenSources = theForm.querySelectorAll("input[name='newsSource[]']:checked");
-
-  
-  alert("Selected countries: " + chosenCountry.length +
-    ", sources: " + chosenSources.length);
-  
 });
 
 
-let country = "pl";
-let url = buildUrl(country);
 
-function buildUrl(userChoice) {
-  const baseURL = "https://newsapi.org/v2/";
-  return baseURL + "top-headlines?" + "country=" + userChoice;
+/* --------- main functions-------------- */
+
+function fetchBbcHeadlines() {
+
+  let country = "pl";
+  let url = buildUrl(country);
+
+  fetch(url, {
+      headers: {
+        "x-api-key": bbcKey,
+      }
+    })
+    .then(response => response.json())
+    .then(function (json) {
+      //displayHeadlines(json);
+      displayNewsItems(json);
+    })
+    .catch(function (err) {
+      console.log("Fetch problem: " + err.message);
+    });;
+
 }
-
-
-
-// fetch headlines from bbc
-
-fetch(url, {
-    headers: {
-      "x-api-key": bbcKey,
-    }
-  })
-  /* .then(function (response) {
-    return response.json(); // implicit conversion to Java Script object
-  }) */
-  .then(response => response.json())
-  .then(function (json) {
-    //displayHeadlines(json);
-    displayNewsItems(json);
-  })
-  .catch(function (err) {
-    console.log("Fetch problem: " + err.message);
-  });;
-
-// display received json
-function displayHeadlines(data) {
-  //headlinesPara.textContent = jsonObj; // [object Object] 
-  //headlinesPara.textContent = JSON.parse(jsonObj); // no display - cant parse [object Object] - can parse only a string
-
-  let jsonstr = JSON.stringify(data); // converts a JavaScript object to a (JSON) string. here: re-converting into JSON
-  headlinesPara.textContent = jsonstr;
-}
-
 
 
 function displayNewsItems(data) {
@@ -104,29 +89,23 @@ function displayNewsItems(data) {
     //------------ assemble an article -----------
     let linkToSource = document.createElement("a");
     linkToSource.href = url;
-    linkToSource.target = "_blank";  
-   
-      
+    linkToSource.target = "_blank";
+
     let article = document.createElement("article");
     article.appendChild(linkToSource);
     // ------------ header -------------
     let header = document.createElement("header");
-    let headline = document.createElement("h3");    
-    headline.textContent = title;  
+    let headline = document.createElement("h3");
+    headline.textContent = title;
     header.appendChild(headline);
-
     let img = document.createElement("img");
-    img.src = imageSrc;    
-    
-   
-    
-    // ------------ section -------------
-    let section = document.createElement("section");   
+    img.src = imageSrc;
 
+    // ------------ section -------------
+    let section = document.createElement("section");
     let descriptionPara = document.createElement("p");
     descriptionPara.innerHTML = newsSummary;
     section.appendChild(descriptionPara);
-    
 
     // ------------ footer -------------
     let footer = document.createElement("footer");
@@ -149,6 +128,38 @@ function displayNewsItems(data) {
 
   }
 }
+
+/* ------------------------------------------------------------------- */
+
+
+
+
+/* --------- helper functions-------------- */
+
+function buildUrl(userCountryChoice) {
+  const baseURL = "https://newsapi.org/v2/";
+  return baseURL + "top-headlines?" + "country=" + userCountryChoice;
+}
+
+/* ------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function selectTextToDisplay(content, description, title, preferDescriptionToDisplay) {
@@ -194,5 +205,29 @@ function selectTextToDisplay(content, description, title, preferDescriptionToDis
   }
 
   return textToDisplay.length > 59 ? textToDisplay : title;
-  /*  + "<br><br><p>" + defaultText + "</p>"; */
 }
+
+
+// TODO remove when finished
+
+// display received json
+
+// Get HTML elements
+const headlinesPara = document.querySelector("p.allheadlines");
+
+function displayHeadlines(data) {
+  //headlinesPara.textContent = jsonObj; // [object Object] 
+  //headlinesPara.textContent = JSON.parse(jsonObj); // no display - cant parse [object Object] - can parse only a string
+
+  let jsonstr = JSON.stringify(data); // converts a JavaScript object to a (JSON) string. here: re-converting into JSON
+  headlinesPara.textContent = jsonstr;
+}
+
+
+/* .then(function (response) {
+    return response.json(); // implicit conversion to Java Script object
+  }) 
+  the same as:
+  .then(response => response.json())
+
+  */

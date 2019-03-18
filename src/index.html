@@ -12,6 +12,16 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- if you specify both, async takes precedence on modern browsers, 
+  while older browsers (that support defer but not async) will fallback to defer.
+Scripts marked defer are executed right after the domInteractive event, 
+ which happens after the HTML is loaded, parsed and the DOM is built.
+
+CSS and images at this point are still to be parsed and loaded.
+
+Once this is done, the browser will emit the domComplete event, and then onLoad. -->
+  <script src="js/main.js" defer></script>
+
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
@@ -34,16 +44,16 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
           <legend>Choose the country:</legend>
           <div>
             <!--  will produce a string submitted like this: country[]=pl&country[]=us  -->
-            <input type="radio" id="polish" name="country[]" value="pl" checked>
-            <label for="polish">Polish</label>
+            <input type="radio" id="poland" name="country[]" value="pl" checked>
+            <label for="poland">Poland</label>
           </div>
           <div>
-            <input type="radio" id="english" name="country[]" value="en">
-            <label for="english">English</label>
+            <input type="radio" id="england" name="country[]" value="en">
+            <label for="england">England</label>
           </div>
           <div>
-            <input type="radio" id="german" name="country[]" value="gr">
-            <label for="german">German</label>
+            <input type="radio" id="germany" name="country[]" value="gr">
+            <label for="germany">Germany</label>
           </div>
           <div>
             <input type="radio" id="all" name="country[]" value="all">
@@ -122,8 +132,7 @@ for Awesome-New-Feature™, your code works there - automatically!  -->
 
 
 
-
-  <script src="js/main.js" defer></script>
+  
 
 
 </body>
