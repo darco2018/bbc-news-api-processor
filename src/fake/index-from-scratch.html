@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 60-64 chars... https://totheweb.com/learning_center/tool-test-google-title-meta-description-lengths/-->
+  <title>Customizable news and articles aggregate from all over the world</title>
+  <!-- 150-154 chars  unique per page, relevent keywords, curiosity 
+https://buffer.com/library/free-seo-tools-->
+  <meta name="description" content="Finally all at one place - your private news and articles website. Set your preferences once to filter what really interests YOU! ">
+  <meta name="author" content="Dariusz Ustrzycki">
+
+</head>
+
+<body>
+  <header>
+    <h1>Infobank</h1>>
+  </header>
+  <nav>
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </nav>
+
+  <div id="container" lang="pl">
+
+    <!-- aside can be only inside SECTIONING ELEMENT: article, section, body... But not main -->
+    <aside id="sidebar">
+      <form>
+        <fieldset>
+          <legend>Choose country</legend>
+        </fieldset>
+        <fieldset>
+          <legend>Choose category</legend>
+        </fieldset>
+      </form>
+    </aside>
+
+    <!--content directly connected to central functionality of document or app; one per page
+      Cant be child of article/aside/header-. Formerly div with id=wrapper/content> 
+    Allowed parents: html, body, div, form-->
+    <main id="main">
+
+      <!-- thematic grouping of content. A single record in a db; dont use if cant think of a heading - the theme of
+        each section should be easily identifiable. 
+        Dont use if theres no natural heading
+        Dont use section for styling or scrypting : div is for it.
+        Dont use it if article/aside/nav is more appropriate 
+    
+    Section forms a part of sth else. Article is its own thing. All depends on authors intent-->
+      <section id="content">
+        <h2>Articles from BBC API</h2>
+
+        <!--complete, self-contained, independently distributable by RSS/reusable-->
+        <article id="article1">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <!-- optimal length 50-60 chars up to 75 by some -->
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+
+        <article id="article2">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+        <article id="article3">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+        <article id="article4">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+        <article id="article5">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+        <article id="article6">
+          <header>
+            <h3>Utrecht shooting</h3>
+            <img src="#" alt="#">
+          </header>
+          <p>Lorem ipsum</p>
+          <footer>
+            <p><time datetime="2019-03-15">days ago</time></p>
+            <p>source</p>
+          </footer>
+        </article>
+
+      </section>
+    </main>
+  </div>
+  <footer>
+    <p> Copyright Dariusz Ustrzycki 2019</p>
+  </footer>
+
+</body>
+
+</html>

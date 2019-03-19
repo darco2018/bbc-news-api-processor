@@ -1,0 +1,5 @@
+main {
+    /* not all browser recognize main */
+    display:block;
+
+}
