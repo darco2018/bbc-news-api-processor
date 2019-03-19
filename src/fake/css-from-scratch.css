@@ -111,30 +111,54 @@ textarea {
 body {
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
-  
+
 }
 
 #jumbo {
   text-transform: uppercase;
   background-color: beige;
-  
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
-h1,
-h2 {
-  text-align: center;
+#top-nav,
+#container {
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+#top-nav {
+  margin-top: 0em;
+  margin-bottom: 0.1em;
 }
 
 h1 {
- margin-top: 0em;
+  text-align: center;
+  margin-top: 0em;
   margin-bottom: .1em;
 }
 
 h2 {
+  text-align: center;
   font-size: 1.5em;
   margin-top: 0em;
   margin-bottom: 0em;
 }
+
+h3 {
+    margin-top: 0em;
+    margin-bottom: 0.2em;  
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 0.2em; 
+}
+
+img {
+    margin-top: 0em;
+    margin-bottom: 0.3em;  
+  }
 
 
 
@@ -143,45 +167,31 @@ h2 {
   text-align: center;
 }
 
-#top-nav {
-  
-}
-
-
-
 #sidebar {
- 
+  margin-top: 0em;
+  margin-bottom: 0.2em;
+
 }
+
 
 #sidebar legend {
   font-weight: bolder;
-  
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+
 }
 
 
 #main,
-#content {    
+#content {
   margin: 0 auto;
 }
 
 
-.article h3,
-.article img,
-.article p {
-  margin-top: 0em;
-  margin-bottom: .2em;
-  /* margin-right: .2em; */
 
-}
 
-.article h3 {
-  
-  margin-top: 0em;
-}
 
-.article img {
-  border: 1px solid grey;
-}
+
 
 
 
@@ -190,9 +200,7 @@ h2 {
 /* body {
     background: cyan;
 }
-nav {
-    background: orange;
-}
+
 div {
     background:gray;
 }
@@ -222,6 +230,10 @@ h1, h2, h3 {
 
  */
 
+nav {
+  background: orange;
+}
+
 aside {
   background: lightslategrey;
 }
@@ -232,7 +244,7 @@ main {
 }
 
 article {
-  
+
   min-width: 300px;
 }
 
@@ -356,28 +368,31 @@ article header h3:after {
     font-size: 3em;
   }
 
-
-
-  #top-nav {
-    
+  h2 {
+      margin-top: 0px;
+      margin-bottom: 8px;
   }
+
+
+
+  #top-nav {}
 
 
   div {
     background-color: green;
   }
 
-/* 
+  /* 
   #main,
   
   
  */
- .article,
-  #sidebar  {
+  .article,
+  #sidebar {
     float: left;
   }
 
-  
+
   #section,
   #main {
     float: right;
@@ -392,7 +407,7 @@ article header h3:after {
     display: block;
   }
 
- 
+
 
   .article {
     /* min-width: 150px%; */
