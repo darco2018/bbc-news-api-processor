@@ -1,8 +1,11 @@
 console.log("I'm a great developer");
 
 /* --------- non-html vars -------------- */
+const baseURL = "https://newsapi.org/v2/";
 const bbcKey = "d37577f515ea4b5f8d4996bf502882ff";
+const headlinesEndpoint = "top-headlines?";
 const defaultCountry = "pl";
+const defaultCategory = "general";
 /* /* ------------------------------------------------------------------- */
 
 
@@ -14,7 +17,7 @@ const main = document.querySelector("main");
 // the form
 const theForm = document.querySelector("#user-choices-form");
 const countryInputs = theForm.querySelectorAll("input[name='country[]'");
-const srcInputs = theForm.querySelectorAll("input[name='news-source[]'");
+const categoryInputs = theForm.querySelectorAll("input[name='category'");
 /* ------------------------------------------------------------------- */
 
 
@@ -27,19 +30,24 @@ fetchBbcHeadlines();
 theForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let chosenCountry = theForm.querySelector("input[name='country[]']:checked");
-  fetchBbcHeadlines(chosenCountry.value);
-});
+  let chosenCategory = theForm.querySelector("input[name='category']:checked");
 
+  fetchBbcHeadlines(chosenCountry.value, chosenCategory.value);
+});
 
 
 /* --------- main functions-------------- */
 
-function fetchBbcHeadlines(userCountryChoice, newsSources) {
+function fetchBbcHeadlines(userCountryChoice, userCategoryChoice) {
 
-  let requestUrl;
+  let requestUrl = buildRequestUrl(
+    baseURL,
+    headlinesEndpoint,
+    createCountryQuery(userCountryChoice),
+    createCategoryQuery(userCategoryChoice)
+  );
 
-  setMainPanelLanguage(userCountryChoice);
-  requestUrl = buildRequestUrl(createCountryQuery(userCountryChoice));
+  setMainPanelLanguage(userCategoryChoice);
 
   fetch(requestUrl, {
       headers: {
@@ -143,17 +151,21 @@ function displayNewsItems(data) {
 /* --------- helper functions-------------- */
 
 function createCountryQuery(countryCode) {
-
-  countryCode = countryCode ? countryCode : defaultCountry;
-
-  // bbc api doesn't allow no-paramter query, and there's no option for 'all countries', 
-  // so setting a category serves as a substitute for a single mandatory parameter
-  return countryCode === "all" ? "category=politics" : "country=" + countryCode;
+  // there's no option for 'all countries' in bbc api, 
+  return "country=" + (countryCode ? (countryCode === "world" ? "" : countryCode) : defaultCountry);
 }
 
-function buildRequestUrl(userCountryChoice) {
-  const baseURL = "https://newsapi.org/v2/";
-  return baseURL + "top-headlines?" + userCountryChoice;
+function createCategoryQuery(categoryCode) {
+  return "category=" + (categoryCode ? categoryCode : defaultCategory);
+}
+
+// country=us&category=&apiKey  ok
+// country=&category=health  ok
+// country=&category=  not ok
+// bbc api doesn't allow no-paramter query, and there's no option for country='all countries', 
+// so setting a category=general  satisfies the requirement for a single mandatory parameter
+function buildRequestUrl(base, headlines, countryQuery, categoryQuery) {
+  return base + headlines + countryQuery + "&" + categoryQuery;
 }
 
 function setMainPanelLanguage(countryCode) {

@@ -40,31 +40,73 @@ Once this is done, the browser will emit the domComplete event, and then onLoad.
     <aside>
 
       <form id="user-choices-form" autocomplete="off">
-        <fieldset >
-          <legend>Choose the country:</legend>
+        <fieldset>
+          <legend>Wybierz kraj:</legend>
           <div>
             <!--  will produce a string submitted like this: country[]=pl&country[]=us  -->
             <input type="radio" id="poland" name="country[]" value="pl" checked>
-            <label for="poland">Poland</label>
+            <label for="poland">Polska</label>
           </div>
           <div>
             <input type="radio" id="great-britain" name="country[]" value="gb">
-            <label for="great-britain">Great Britain</label>
+            <label for="great-britain">Wielka Brytania</label>
           </div>
           <div>
-              <input type="radio" id="us" name="country[]" value="us">
-              <label for="us">USA</label>
-            </div>
+            <input type="radio" id="us" name="country[]" value="us">
+            <label for="us">USA</label>
+          </div>
           <div>
             <input type="radio" id="germany" name="country[]" value="de">
-            <label for="germany">Germany</label>
+            <label for="germany">Niemcy</label>
           </div>
           <div>
-            <input type="radio" id="all" name="country[]" value="all">
-            <label for="all">The world</label>
+              <input type="radio" id="italy" name="country[]" value="it">
+              <label for="italy">Włochy</label>
+            </div>
+          <div>
+            <input type="radio" id="world" name="country[]" value="world">
+            <label for="world">Świat</label>
+        </fieldset>
+        <fieldset>
+          <legend>Wybierz kategorię:</legend>          
+          <div>
+            <label>
+              <input type="radio" id="general" name="category" value="general" checked>
+              wszystko
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" id="science" name="category" value="science">
+              nauka</label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" id="sports" name="category" value="sports">
+              sport</label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" id="health" name="category" value="health">
+              zdrowie</label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" id="technology" name="category" value="technology">
+              technologia</label>
+          </div>
+          <div>
+            <label>
+              <input type="radio" id="entertainment" name="category" value="entertainment">
+              rozrywka</label>
+          </div>
+
+          <div>
+            <button type="submit">Szukaj</button>
+          </div>
         </fieldset>
 
-        <fieldset>
+        <!--  <fieldset>
           <legend>Choose the news source:</legend>
           <div>
             <input type="checkbox" id="onet" name="news-source[]" value="onet.pl">
@@ -93,7 +135,7 @@ Once this is done, the browser will emit the domComplete event, and then onLoad.
           <div>
             <button type="submit">Submit</button>
           </div>
-        </fieldset>
+        </fieldset> -->
       </form>
     </aside>
 
@@ -131,12 +173,12 @@ Once this is done, the browser will emit the domComplete event, and then onLoad.
 
 
   <!-- Add your site or application content here -->
-  <h1>BBC headlines for Poland</h1>
-  <p class="allheadlines"></p>
+  <!-- <h1>BBC headlines for Poland</h1>
+  <p class="allheadlines"></p> -->
 
 
 
-  
+
 
 
 </body>
