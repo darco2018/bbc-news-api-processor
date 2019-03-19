@@ -106,10 +106,84 @@ textarea {
   box-sizing: border-box;
 }
 
+
+
 body {
-  padding-left: .3em;
-  padding-right: .3em;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
+  
 }
+
+#jumbo {
+  text-transform: uppercase;
+  background-color: beige;
+  
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h1 {
+ margin-top: 0em;
+  margin-bottom: .1em;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+
+
+#top-nav,
+#jumbo {
+  text-align: center;
+}
+
+#top-nav {
+  
+}
+
+
+
+#sidebar {
+ 
+}
+
+#sidebar legend {
+  font-weight: bolder;
+  
+}
+
+
+#main,
+#content {    
+  margin: 0 auto;
+}
+
+
+.article h3,
+.article img,
+.article p {
+  margin-top: 0em;
+  margin-bottom: .2em;
+  /* margin-right: .2em; */
+
+}
+
+.article h3 {
+  
+  margin-top: 0em;
+}
+
+.article img {
+  border: 1px solid grey;
+}
+
+
 
 
 
@@ -149,11 +223,17 @@ h1, h2, h3 {
  */
 
 aside {
-  background: purple;
+  background: lightslategrey;
 }
+
 
 main {
   background: lightblue;
+}
+
+article {
+  
+  min-width: 300px;
 }
 
 article header+p:after {
@@ -161,7 +241,7 @@ article header+p:after {
 }
 
 article header h3:after {
-    content: "Magdalena Adamowicz podzieliła się wzruszającą pracą domową córki. ";    
+  content: "Magdalena Adamowicz podzieliła się wzruszającą pracą domową córki. ";
 }
 
 
@@ -276,13 +356,10 @@ article header h3:after {
     font-size: 3em;
   }
 
-  #top-nav,
-  #jumbo {
-    text-align: center;
-  }
+
 
   #top-nav {
-    padding-bottom: 1em;
+    
   }
 
 
@@ -290,26 +367,37 @@ article header h3:after {
     background-color: green;
   }
 
-
-
-  #sidebar,
+/* 
   #main,
-  #section,
-  .article {
+  
+  
+ */
+ .article,
+  #sidebar  {
     float: left;
   }
 
-  #sidebar {
-    width: 25%;
-  }
-
+  
+  #section,
   #main {
     float: right;
-    width: 70%;
+    /* width: 70%; */
   }
 
+  #sidebar {
+    /* width: 25%; */
+  }
+
+  #sidebar label {
+    display: block;
+  }
+
+ 
+
   .article {
-    width: 30%;
+    /* min-width: 150px%; */
+    max-width: 32%;
+
   }
 
   #page-footer {
