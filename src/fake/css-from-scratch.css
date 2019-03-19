@@ -7,15 +7,15 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
- 
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
-   html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 /*
@@ -29,13 +29,13 @@
  */
 
 ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+  background: #b3d4fc;
+  text-shadow: none;
 }
 
 /*
@@ -43,12 +43,12 @@
  */
 
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*
@@ -63,7 +63,7 @@ iframe,
 img,
 svg,
 video {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /*
@@ -71,9 +71,9 @@ video {
  */
 
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
@@ -81,7 +81,7 @@ fieldset {
  */
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 /* ==========================================================================
@@ -89,19 +89,31 @@ textarea {
    ========================================================================== */
 
 .browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
 
 
 
- /* ==========================================================================
+/* ==========================================================================
    Author's custom styles
    ========================================================================== */
-   body {
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-left: .3em;
+  padding-right: .3em;
+}
+
+
+
+/* body {
     background: cyan;
 }
 nav {
@@ -111,13 +123,7 @@ div {
     background:gray;
 }
 
-aside {
-    background: purple;
-}
 
-main {
-    background: lightblue;
-}
 section {
     border: 3px solid yellow;
 }
@@ -140,6 +146,23 @@ h1, h2, h3 {
 }
 
 
+ */
+
+aside {
+  background: purple;
+}
+
+main {
+  background: lightblue;
+}
+
+article header+p:after {
+  content: "Lorem ipsum dolor sit amet, 260 chars adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpisus";
+}
+
+article header h3:after {
+    content: "Magdalena Adamowicz podzieliła się wzruszającą pracą domową córki. ";    
+}
 
 
 
@@ -148,10 +171,7 @@ h1, h2, h3 {
 
 
 
-
-
-
- /* ==========================================================================
+/* ==========================================================================
    Helper classes
    ========================================================================== */
 
@@ -159,7 +179,7 @@ h1, h2, h3 {
  * Hide visually and from screen readers
  */
 
- .hidden {
+.hidden {
   display: none !important;
 }
 
@@ -181,7 +201,8 @@ h1, h2, h3 {
   padding: 0;
   position: absolute;
   width: 1px;
-  white-space: nowrap; /* 1 */
+  white-space: nowrap;
+  /* 1 */
 }
 
 /*
@@ -223,15 +244,17 @@ h1, h2, h3 {
 
 .clearfix:before,
 .clearfix:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
 }
 
 .clearfix:after {
   clear: both;
 }
 
- 
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -247,94 +270,141 @@ h1, h2, h3 {
 
 /* turns on for elements at least 405px */
 @media only screen and (min-width: 405px) {
-    /* Style adjustments for viewports that meet the condition */
-    div {
-        background-color: green;
-    }
+  /* Style adjustments for viewports that meet the condition */
+
+  h1 {
+    font-size: 3em;
+  }
+
+  #top-nav,
+  #jumbo {
+    text-align: center;
+  }
+
+  #top-nav {
+    padding-bottom: 1em;
+  }
+
+
+  div {
+    background-color: green;
+  }
+
+
+
+  #sidebar,
+  #main,
+  #section,
+  .article {
+    float: left;
+  }
+
+  #sidebar {
+    width: 25%;
+  }
+
+  #main {
+    float: right;
+    width: 70%;
+  }
+
+  .article {
+    width: 30%;
+  }
+
+  #page-footer {
+    text-align: center;
+  }
+
+
+
+
+
 }
 
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
 
- 
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
    https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
-   @media print {
-    *,
-    *:before,
-    *:after {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster */
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
+@media print {
 
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster */
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
+  a[href]:after {
+    content: " ("attr(href) ")";
+  }
 
-    /*
+  abbr[title]:after {
+    content: " ("attr(title) ")";
+  }
+
+  /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
 
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
 
-    pre {
-        white-space: pre-wrap !important;
-    }
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
+  pre {
+    white-space: pre-wrap !important;
+  }
 
-    /*
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
 
-    thead {
-        display: table-header-group;
-    }
+  thead {
+    display: table-header-group;
+  }
 
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
 
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
 
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
 }
-
-

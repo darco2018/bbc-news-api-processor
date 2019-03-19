@@ -16,19 +16,19 @@ https://buffer.com/library/free-seo-tools-->
 
 <!-- https://gsnedders.html5.org/outliner/ -->
 <body>
-  <header>
+  <header id="jumbo">
     <h1>Infobank</h1>
   </header>
-  <nav>
+  <nav id="top-nav">
     <a href="#">Link 1</a>
     <a href="#">Link 2</a>
     <a href="#">Link 3</a>
   </nav>
 
-  <div id="container" lang="pl">
+  <div id="container" class="clearfix" lang="pl">
 
     <!-- aside can be only inside SECTIONING ELEMENT: article, section, body... But not main -->
-    <aside id="sidebar">
+    <aside id="sidebar" >
       <form>
         <fieldset>
           <legend>Choose country</legend>
@@ -42,7 +42,7 @@ https://buffer.com/library/free-seo-tools-->
     <!--content directly connected to central functionality of document or app; one per page
       Cant be child of article/aside/header-. Formerly div with id=wrapper/content> 
     Allowed parents: html, body, div, form-->
-    <main id="main">
+    <main id="main" class="clearfix">
 
       <!-- thematic grouping of content. A single record in a db; dont use if cant think of a heading - the theme of
         each section should be easily identifiable. 
@@ -55,69 +55,69 @@ https://buffer.com/library/free-seo-tools-->
         <h2>Articles from BBC API</h2>
 
         <!--complete, self-contained, independently distributable by RSS/reusable-->
-        <article id="article1">
+        <article  id="article1" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
           <!-- optimal length 50-60 chars up to 75 by some -->
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
           </footer>
         </article>
 
-        <article id="article2">
+        <article id="article2" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
           </footer>
         </article>
-        <article id="article3">
+        <article id="article3" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
           </footer>
         </article>
-        <article id="article4">
+        <article id="article4" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
           </footer>
         </article>
-        <article id="article5">
+        <article id="article5" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
           </footer>
         </article>
-        <article id="article6">
+        <article id="article6" class="article">
           <header>
-            <h3>Utrecht shooting</h3>
+            <h3></h3>
             <img src="#" alt="#">
           </header>
-          <p>Lorem ipsum</p>
+          <p></p>
           <footer>
             <p><time datetime="2019-03-15">days ago</time></p>
             <p>source</p>
@@ -127,7 +127,7 @@ https://buffer.com/library/free-seo-tools-->
       </section>
     </main>
   </div>
-  <footer>
+  <footer id="page-footer">
     <p> Copyright Dariusz Ustrzycki 2019</p>
   </footer>
 
