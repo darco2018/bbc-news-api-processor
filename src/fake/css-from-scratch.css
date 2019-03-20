@@ -101,7 +101,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-   /* 0bkp */
+/* 0bkp */
 * {
   box-sizing: border-box;
 }
@@ -282,7 +282,7 @@ main {
 }
 
 .news-item-meta {
-    background: green;
+  background: green;
   /* margin-left: 30%;
   margin-right: 30%; */
 }
@@ -293,7 +293,7 @@ main {
 }
 
 .news-item-source {
-    width: 70%;
+  width: 70%;
   /* float: right; */
 }
 
@@ -558,16 +558,24 @@ main {
     }
 
     .news-item {
-
-        width: 50%;
-        
-      }
+      width: 50%;
+    }
   }
 
   /* 3bkp standard Bootstrap 4.x breakpoint */
   @media only screen and (min-width: 992px) {
     h2 {
       color: yellow;
+    }
+
+    .country-choice {
+      float: left;
+      width: 45%;
+    }
+
+    .category-choice {
+      float: right;
+      width: 45%;
     }
 
   }
@@ -577,6 +585,57 @@ main {
     h2 {
       color: red;
     }
+
+    .left-sidebar {
+      float: left;
+      width: 13%;
+    }
+
+    .checkmark {
+      left: 5px;
+    }
+
+    .country-choice,
+    .category-choice {
+      float: none;
+    }
+
+
+    main {
+      float: left;
+      width: 74%;
+    }
+
+    .right-sidebar {
+      float: right;
+      width: 13%;
+    }
+
+    .news-item {
+      min-width: 270px;
+      width: 33.33%;
+    }
+
+    .fakeimg {
+      float: none;
+      /* max-width: 290px; */
+      margin-left: 0px;
+      margin-right: 0px;
+      width: 100%;
+    }
+
+    /* 
+    .banner,
+.navbar,
+.container,
+.left-sidebar,
+main,
+.right-sidebar,
+.page-footer {
+  width: 100%;
+} */
+
+
   }
 
 
