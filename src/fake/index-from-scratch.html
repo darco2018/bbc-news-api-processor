@@ -17,46 +17,66 @@ https://buffer.com/library/free-seo-tools-->
 <!-- https://gsnedders.html5.org/outliner/ -->
 
 <body>
-  <header id="jumbo">
-    <h1>Infobank</h1>
+  <header class="banner">
+    <h1 class="banner-text">Infobank</h1>
   </header>
-  <nav id="top-nav">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+  <nav class="navbar">
+    <div>
+      <a href="#" class="navbar-links">Link 1</a>
+      <a href="#" class="navbar-links">Link 2</a>
+      <a href="#" class="navbar-links">Link 3</a>
+    </div>
   </nav>
 
-  <div id="container" class="clearfix" lang="pl">
+  <div class="container" lang="pl">
 
     <!-- aside can be only inside SECTIONING ELEMENT: article, section, body... But not main -->
-    <aside id="sidebar">
+    <aside class="left-sidebar">
       <form>
-        <fieldset>
-          <legend>Choose country</legend>
-          <label><input type="radio">Option
+        <fieldset class="country-choice">
+          <legend class="country-choice-title">Choose country</legend>
+          <label class="country-container">Option
+            <input type="radio" name="country" class="country-input" checked>
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="country-container">Option
+            <input type="radio" name="country" class="country-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="country-container">Option
+            <input type="radio" name="country" class="country-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="country-container">Option
+            <input type="radio" name="country" class="country-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="country-container">Option
+            <input type="radio" name="country" class="country-input">
+            <span class="checkmark"></span>
           </label>
         </fieldset>
-        <fieldset>
-          <legend>Choose category</legend>
-          <label><input type="radio">Option
+        <fieldset class="category-choice">
+          <legend class="category-choice-title">Choose category</legend>
+          <label class="category-container">Option
+            <input type="radio" name="category" class="category-input" checked>
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="category-container">Option
+            <input type="radio" name="category" class="category-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="category-container">Option
+            <input type="radio" name="category" class="category-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
+          <label class="category-container">Option
+            <input type="radio" name="category" class="category-input">
+            <span class="checkmark"></span>
           </label>
-          <label><input type="radio">Option
-          </label>
-          <label><input type="radio">Option
+          <label class="category-container">Option
+            <input type="radio" name="category" class="category-input">
+            <span class="checkmark"></span>
           </label>
         </fieldset>
       </form>
@@ -65,7 +85,7 @@ https://buffer.com/library/free-seo-tools-->
     <!--content directly connected to central functionality of document or app; one per page
       Cant be child of article/aside/header-. Formerly div with id=wrapper/content> 
     Allowed parents: html, body, div, form-->
-    <main id="main" class="clearfix">
+    <main>
 
       <!-- thematic grouping of content. A single record in a db; dont use if cant think of a heading - the theme of
         each section should be easily identifiable. 
@@ -74,83 +94,106 @@ https://buffer.com/library/free-seo-tools-->
         Dont use it if article/aside/nav is more appropriate 
     
     Section forms a part of sth else. Article is its own thing. All depends on authors intent-->
-      <section id="content">
-        <h2>Articles from BBC API</h2>
+      <!-- <section class="content"> -->
+      <h2>Articles from BBC API</h2>
 
-        <!--complete, self-contained, independently distributable by RSS/reusable-->
-        <article id="article1" class="article">
+      <!--complete, self-contained, independently distributable by RSS/reusable-->
+      <article id="news-item1" class="news-item">
+        <section class="news-item-content">
           <header>
-            <h3></h3>
-            <img src="#" alt="#">
+            <h3 class="news-item-title"></h3>
+            <div class="fakeimg">Image</div>
           </header>
           <!-- optimal length 50-60 chars up to 75 by some -->
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
+          <p class="news-item-content"></p>
+        </section>
+        <footer class="news-item-meta">
+            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+          <p class="news-item-source">bbc.com</p>          
+        </footer>
+      </article>
+      <article id="news-item1" class="news-item">
+          <section class="news-item-content">
+            <header>
+              <h3 class="news-item-title"></h3>
+              <div class="fakeimg">Image</div>
+            </header>
+            <!-- optimal length 50-60 chars up to 75 by some -->
+            <p class="news-item-content"></p>
+          </section>
+          <footer class="news-item-meta">
+              <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+            <p class="news-item-source">bbc.com</p>          
           </footer>
         </article>
+        <article id="news-item1" class="news-item">
+            <section class="news-item-content">
+              <header>
+                <h3 class="news-item-title"></h3>
+                <div class="fakeimg">Image</div>
+              </header>
+              <!-- optimal length 50-60 chars up to 75 by some -->
+              <p class="news-item-content"></p>
+            </section>
+            <footer class="news-item-meta">
+                <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+              <p class="news-item-source">bbc.com</p>          
+            </footer>
+          </article>
+          <article id="news-item1" class="news-item">
+              <section class="news-item-content">
+                <header>
+                  <h3 class="news-item-title"></h3>
+                  <div class="fakeimg">Image</div>
+                </header>
+                <!-- optimal length 50-60 chars up to 75 by some -->
+                <p class="news-item-content"></p>
+              </section>
+              <footer class="news-item-meta">
+                  <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+                <p class="news-item-source">bbc.com</p>          
+              </footer>
+            </article>
+            <article id="news-item1" class="news-item">
+                <section class="news-item-content">
+                  <header>
+                    <h3 class="news-item-title"></h3>
+                    <div class="fakeimg">Image</div>
+                  </header>
+                  <!-- optimal length 50-60 chars up to 75 by some -->
+                  <p class="news-item-content"></p>
+                </section>
+                <footer class="news-item-meta">
+                    <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+                  <p class="news-item-source">bbc.com</p>          
+                </footer>
+              </article>
+              <article id="news-item1" class="news-item">
+                  <section class="news-item-content">
+                    <header>
+                      <h3 class="news-item-title"></h3>
+                      <div class="fakeimg">Image</div>
+                    </header>
+                    <!-- optimal length 50-60 chars up to 75 by some -->
+                    <p class="news-item-content"></p>
+                  </section>
+                  <footer class="news-item-meta">
+                      <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
+                    <p class="news-item-source">bbc.com</p>          
+                  </footer>
+                </article>
 
-        <article id="article2" class="article">
-          <header>
-            <h3></h3>
-            <img src="#" alt="#">
-          </header>
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
-          </footer>
-        </article>
-        <article id="article3" class="article">
-          <header>
-            <h3></h3>
-            <img src="#" alt="#">
-          </header>
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
-          </footer>
-        </article>
-        <article id="article4" class="article">
-          <header>
-            <h3></h3>
-            <img src="#" alt="#">
-          </header>
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
-          </footer>
-        </article>
-        <article id="article5" class="article">
-          <header>
-            <h3></h3>
-            <img src="#" alt="#">
-          </header>
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
-          </footer>
-        </article>
-        <article id="article6" class="article">
-          <header>
-            <h3></h3>
-            <img src="#" alt="#">
-          </header>
-          <p></p>
-          <footer>
-            <p><time datetime="2019-03-15">days ago</time></p>
-            <p>source</p>
-          </footer>
-        </article>
 
-      </section>
+
+      <!-- </section> -->
     </main>
+
+    <aside class="right-sidebar">
+      <h3>About</h3>
+      <p></p>
+    </aside>
   </div>
-  <footer id="page-footer">
+  <footer class="page-footer">
     <p> Copyright Dariusz Ustrzycki 2019</p>
   </footer>
 
