@@ -116,8 +116,8 @@ body {
   margin: 0 auto;
 }
 
-.banner-container,
-.navbar,
+.banner,
+.nav,
 .container,
 .left-sidebar,
 main,
@@ -136,7 +136,7 @@ p {
   color: #555;
 }
 
-.banner-container {
+.banner {
   min-width: 300px;
 }
 
@@ -144,7 +144,7 @@ p {
 
 
 
-.banner-container {
+.banner {
   
   background-color: beige;
   margin-top: 1.5em;
@@ -163,7 +163,7 @@ p {
   max-height: 25em;
 }
 
-.banner-text {
+.banner__headline {
   color:wheat;
   text-align:start;
   position: absolute;
@@ -172,7 +172,7 @@ p {
   
 }
 
-.banner-container a {
+.banner a {
   display: block;
   width: 200px;
  margin: 0 auto;
@@ -188,7 +188,7 @@ p {
   transition-property: color, background;
 }
 
-.banner-container a:hover {
+.banner a:hover {
   background:  #e81c4f;
   color: white;
 }
@@ -200,7 +200,7 @@ p {
   width: 120px;
 }
 
-.navbar {
+.nav{
   margin-top: 0em;
   margin-bottom: 0.1em;
   margin-left: 0.2em;
@@ -210,7 +210,7 @@ p {
 
 }
 
-.navbar-links {
+.nav--primary__link {
   color: white;
   padding: 14px 20px;
   text-decoration: none;
@@ -223,13 +223,13 @@ p {
   margin: .1em;
 }
 
-.navbar-container {
+.nav--primary__container {
   padding: 0.2em;
   margin: 0em;
 }
 
 /* Change color on hover */
-.navbar-links:hover {
+.nav--primary__link:hover {
   background-color: #ddd;
   color: black;
 
@@ -669,20 +669,20 @@ main {
       color: yellow;
     }
 
-    .banner-text {
+    .banner__headline {
       font-size: 2.8em;
       padding-top: .3em;
       padding-bottom: .3em;
     }
 
-    .navbar-links {
+    .nav--primary__link {
       padding: .3em;
       padding-right: 2em;
       padding-left: 2em;
       margin: .3em;
     }
 
-    .navbar-container {
+    .nav-container {
       padding-top: 0.6em;
       padding-bottom: 0.6em;
 
@@ -711,7 +711,7 @@ main {
       color: red;
     }
 
-    .banner-text {
+    .banner__headline {
       padding-top: .5em;
       padding-bottom: .5em;
       font-size: 4em;
@@ -763,7 +763,7 @@ main {
 
     /* 
     .banner,
-.navbar,
+.nav,
 .container,
 .left-sidebar,
 main,
