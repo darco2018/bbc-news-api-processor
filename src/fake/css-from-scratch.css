@@ -101,6 +101,113 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+:root {
+
+
+/* CSS cutom properties dont work in IE. You can use Sass for fallbacks, or put a n-variable statement before each variable statement,
+eg.
+color: red; //IE
+--primary-clr: red;
+ */
+
+  --primary-clr: red;
+  --secondary-clr: green;
+  --secondary-clr-light: green;
+  --accent-clr: yellow;
+
+  /* var(--primary-clr) or  with fallback var(--primary-clr, yellow)
+   - declared in a class, it can nly be used in that class it was declared in
+  - doesnt break code  if mistake
+  - you can overwrite it - just redeclare it, eg --primary-clr = black; >> avoid it*/
+  --dark: 
+  --light: 
+  --white:
+
+/* fon family   -n nornmal - medium -b bold*/
+  --ff: 'Fira Sans', sans-serif; 
+  --ff-ss: sans-serif stack
+  --ff-s: sans-serif
+  --fc var(--dark);
+
+  /* rem - Relative to font-size of the root element ; to the browsers base font-size, and will not inherit from its parents.
+  em - Relative to the font-size of the element (2em means 2 times the size of the current font)*/
+  /* for h1, h2 etc */
+  --fs-2: 5rem;
+  --fs-3: 2rem;
+  --fs-p: 1rem;
+
+  --spacer: 1rem;
+  --spacer-md: calc(var(--spacer) * 2);
+  --spacer-md: calc(var(--spacer) * 3);
+
+  --shadow: 0 0 1em rgba(0, 0, 0, .25);
+  /* border radus eg for buttons an tables corners */
+  --br: 5px;
+
+  --sec-pad: 150px 0;
+  --mw: 800px;
+  --w: 90%;
+  --gap: 2em;
+
+/* @media */
+/* -b >> body */
+--fs-b-lrg: 1rem;
+--fs-h1-1rg: 3rem;
+--fs-h2-1rg: 3rem;
+
+--fs-b-sm: 8rem;
+--fs-h1-sm: 2rem;
+--fs-h2-sm: 1.2rem;
+
+/* or like this - more concise:  nie wiem czy tu nie trzeba jakos Sass właczyć ...
+:root{
+--fs-b: 8rem;
+--fs-h1: 2rem;
+--fs-h2: 1.2rem;
+}
+
+
+@media(min-width: 800px){
+  redefining root for this size:
+  :root {
+--fs-b: 1rem;
+--fs-h1: 3rem;
+--fs-h2: 1.5rem;
+  }
+
+  h1 {
+    font-size: var(--fs-h1);
+  }
+
+   h2 {
+    font-size: var(--fs-h2);
+  }
+
+   h3 {
+    font-size: var(--fs-h3);
+  }
+}
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
 /* 0bkp */
 * {
   box-sizing: border-box;
@@ -118,11 +225,11 @@ body {
 
 .banner,
 .nav,
-.container,
-.left-sidebar,
+#middle-wrapper,
+.user-choices,
 main,
 .right-sidebar,
-.page-footer {
+#bottom-wrapper {
   width: 100%;
 }
 
@@ -238,13 +345,13 @@ p {
 
 
 
-.container {
+#middle-wrapper {
   margin-left: 0.2em;
   margin-right: 0.2em;
 }
 
 
-.left-sidebar {
+.user-choices {
   margin-top: 0em;
   margin-bottom: 0.4em;
   margin-left: 0em;
@@ -264,7 +371,7 @@ main {
 
 }
 
-.left-sidebar form {
+.user-choices form {
   border: 2px solid rgb(81, 85, 81);
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -366,28 +473,23 @@ main {
 
 /* ------------- END - STYLE THE RADIO BUTTONS -----------------*/
 
-.news-item {
+.module--newsitem {
   min-width: 300px;
   padding-left: 0.4em;
   padding-right: 0.4em;
 }
 
-
-.news-item-meta {
-  /* background: green; */
-}
-
-.news-item-datetime {
+.module--newsitem__datetime {
   float: left;
   width: 30%;
 }
 
-.news-item-source {
+.module--newsitem__source {
   width: 70%;
   /* float: right; */
 }
 
-.news-item:after {
+.module--newsitem:after {
   content: "";
   border-bottom: 1px solid  #d8dee9;
   width: 80%;
@@ -396,11 +498,11 @@ main {
 }
 
 
-.news-item header+p:after {
+.module--newsitem header+p:after {
   content: "Lorem ipsum dolor sit amet, 260 chars adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpisus";
 }
 
-.news-item header h3:after {
+.module--newsitem header h3:after {
   content: "Magdalena Adamowicz podzieliła się wzruszającą pracą domową córki. ";
 }
 
@@ -449,14 +551,14 @@ h3 {
 /* backgrounds */
 
 
-.container {
+#middle-wrapper {
   background-color: lightslategrey;
   border: 3px dotted black;
 }
 
 
 
-.left-sidebar,
+.user-choices,
 .right-sidebar {
   background: lightgoldenrodyellow;
 }
@@ -471,7 +573,7 @@ main {
   border: 3px solid red;
 }
 
-.page-footer {
+#bottom-wrapper {
   background-color: yellow;
   border: 3px solid;
 }
@@ -589,13 +691,13 @@ main {
 @media only screen and (min-width: 576px) {
   /* Style adjustments for viewports that meet the condition */
 
-  .container {
+  #middle-wrapper {
     margin: 0 auto;
     /* wont be respected if width not 100%*/
 
   }
 
-  .left-sidebar {
+  .user-choices {
     float: left;
     width: 100%;
   }
@@ -610,7 +712,7 @@ main {
     float: left;
   }
 
-  .news-item {
+  .module--newsitem {
 
     float: left;
     width: 100%;
@@ -624,14 +726,14 @@ main {
     margin-right: 1.5em;
   }
 
-  .news-item-meta {
+  .module--newsitem__meta {
     background-color: lighblue;
     content: " ";
     clear: both;
   }
 
 
-  .page-footer {
+  #bottom-wrapper {
     clear: both;
     text-align: center;
   }
@@ -658,7 +760,7 @@ main {
       color: green;
     }
 
-    .news-item {
+    .module--newsitem {
       width: 50%;
     }
   }
@@ -717,7 +819,7 @@ main {
       font-size: 4em;
     }
 
-    .left-sidebar {
+    .user-choices {
       float: left;
       width: 13%;
     }
@@ -743,7 +845,7 @@ main {
       width: 17%;
     }
 
-    .news-item {
+    .module--newsitem {
       /* border: 3px solid blue; */
       min-width: 180px;
       width: 33.33%;
@@ -761,16 +863,6 @@ main {
       font-size: 1.1em;
     }
 
-    /* 
-    .banner,
-.nav,
-.container,
-.left-sidebar,
-main,
-.right-sidebar,
-.page-footer {
-  width: 100%;
-} */
 
 
   }
