@@ -61,7 +61,7 @@ function fetchBbcHeadlines(userCountryChoice, userCategoryChoice) {
     })
     .catch(function (err) {
       console.log("Fetch problem: " + err.message);
-    });;
+    });
 
 }
 
@@ -70,7 +70,7 @@ function displayNewsItems(data) {
 
   while (main.firstChild && main.removeChild(main.firstChild));
 
-  newsItemsArr = data["articles"];
+  newsItemsArr = data.articles;
 
   console.log(newsItemsArr);
 

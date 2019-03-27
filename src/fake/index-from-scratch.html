@@ -3,31 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- 60-64 chars... https://totheweb.com/learning_center/tool-test-google-title-meta-description-lengths/-->
+  <!-- 60-64 chars-->
   <title>Customizable news and articles aggregate from all over the world</title>
-  <!-- 150-154 chars  unique per page, relevent keywords, curiosity 
-https://buffer.com/library/free-seo-tools-->
+  <!-- 150-154 chars  unique per page, relevent keywords, curiosity -->
   <meta name="description" content="Finally all at one place - your private news and articles website. Set your preferences once to filter what really interests YOU! ">
   <meta name="author" content="Dariusz Ustrzycki">
   <link rel="stylesheet" href="fake-index_files/normalize.css">
   <link rel="stylesheet" href="css-from-scratch.css">
-
 </head>
 
-<!-- https://gsnedders.html5.org/outliner/ -->
-
-<!--  -->
-
 <body>
-  <div class="site-wrapper">
+  <div id="site-wrapper">
     <!-- // [START Header & Primary navigation]  -->
-    <div class="top-wrapper"> 
+    <div id="top-wrapper"> 
       <header>
         <div class="banner"> 
-          <img class="image logo" src="img/logo.png" alt="logo"> 
-          <!-- https://unsplash.com/   https://htmlcolors.com/ -
-      fonts: online service like Typekit, let's use "Roboto" from the free Google Fonts service:-->
-          <h1 class="banner__headline">Infobank</h1>   <!-- banner__headline -->
+          <img class="image logo" src="img/logo.png" alt="logo">           
+          <h1 class="banner__headline">Infobank</h1>   
           <a href="#" target="_blank">by Dariusz Ustrzycki</a>  <!-- link banner_link -->
         </div>
       </header>
@@ -43,10 +35,10 @@ https://buffer.com/library/free-seo-tools-->
     </div>
     <!-- // [END Header and Primary navigation ]-->
     <!-- // [START content]  -->
-    <div class="container" la border-bottom: 1px solid #d8dee9;ng="pl">
+    <div id="middle-wrapper" >
 
       <!-- aside can be only inside SECTIONING ELEMENT: article, section, body... But not main -->
-      <aside class="left-sidebar">
+      <aside class="user-choices content content--secondary ">
         <form>
           <section class="left-sidebar-container">
             <fieldset class="country-choice">
@@ -108,7 +100,7 @@ https://buffer.com/library/free-seo-tools-->
       <!--content directly connected to central functionality of document or app; one per page
       Cant be child of article/aside/header-. Formerly div with id=wrapper/content> 
     Allowed parents: html, body, div, form-->
-      <main>
+      <main class="content content--main">
 
         <!-- thematic grouping of content. A single record in a db; dont use if cant think of a heading - the theme of
         each section should be easily identifiable. 
@@ -118,108 +110,42 @@ https://buffer.com/library/free-seo-tools-->
     
     Section forms a part of sth else. Article is its own thing. All depends on authors intent-->
         <!-- <section class="content"> -->
-        <h2>Articles from BBC API</h2>
+        <h2>News selection </h2>
 
         <!--complete, self-contained, independently distributable by RSS/reusable-->
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
+
+        <!-- newsitem 01 -->
+        <article class="module module--newsitem">
+          <section> 
             <header>
-              <h3 class="news-item-title"></h3>
+              <h3 class="module--newsitem__title"></h3>
               <div class="fakeimg">Image</div>
             </header>
             <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
+            <p class="module--newsitem__summary"></p>
           </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
+          <footer class="module--newsitem__meta">
+            <time class="module--newsitem__datetime" datetime="2019-03-15">2 days ago</time>
+            <p class="module--newsitem__source">bbc.com</p>
           </footer>
         </article>
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
-            <header>
-              <h3 class="news-item-title"></h3>
-              <div class="fakeimg">Image</div>
-            </header>
-            <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
-          </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
-          </footer>
-        </article>
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
-            <header>
-              <h3 class="news-item-title"></h3>
-              <div class="fakeimg">Image</div>
-            </header>
-            <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
-          </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
-          </footer>
-        </article>
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
-            <header>
-              <h3 class="news-item-title"></h3>
-              <div class="fakeimg">Image</div>
-            </header>
-            <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
-          </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
-          </footer>
-        </article>
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
-            <header>
-              <h3 class="news-item-title"></h3>
-              <div class="fakeimg">Image</div>
-            </header>
-            <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
-          </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
-          </footer>
-        </article>
-        <article id="news-item1" class="news-item">
-          <section class="news-item-content">
-            <header>
-              <h3 class="news-item-title"></h3>
-              <div class="fakeimg">Image</div>
-            </header>
-            <!-- optimal length 50-60 chars up to 75 by some -->
-            <p class="news-item-content"></p>
-          </section>
-          <footer class="news-item-meta">
-            <time class="news-item-datetime" datetime="2019-03-15">2 days ago</time>
-            <p class="news-item-source">bbc.com</p>
-          </footer>
-        </article>
+        
 
 
 
-        <!-- </section> -->
+        </section>
       </main>
-
-      <aside class="right-sidebar">
+<!-- promo-stuff -->
+      <aside class="right-sidebar content--secondary">
         <h3></h3>
         <p class="right-sidebar-text"> </p>
       </aside>
     </div>
     <!-- // [END content]  -->
     <!-- // [START Footer]  -->
-    <footer class="page-footer">
-      <p> Copyright Dariusz Ustrzycki 2019</p>
+    <footer id="bottom-wrapper">
+      <p>Copyright 2019</p>
+      <p>design by Dariusz Ustrzycki</p>
     </footer>
     <!-- // [END Footer]  -->
   </div>
