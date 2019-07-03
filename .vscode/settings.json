@@ -1,5 +1,7 @@
 {
   "jshint.options": {
     "esversion": 6
-  }
+  },
+  "workbench.settings.openDefaultSettings": true,
+  "eslint.enable": true
 }
